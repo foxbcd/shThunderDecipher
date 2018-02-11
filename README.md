@@ -7,3 +7,8 @@
 
 ## 即将支持
 - 飞速链接fs2you
+
+# 用法
+`thunderdecoder `*`下载链接`*
+
+
