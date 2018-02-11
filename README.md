@@ -9,6 +9,6 @@
 - 飞速链接fs2you
 
 # 用法
-`thunderdecoder `*`下载链接`*
+`thunderdecoder link`
 
 
