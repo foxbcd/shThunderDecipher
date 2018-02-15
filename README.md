@@ -8,8 +8,10 @@
 - 飞速链接fs2you
 
 # 用法
-`thunderdecoder -c link #转换为真实链接`
-`thunderdecoder -a -c link #转换为支持到所有形式到链接`
+```
+thunderdecoder -c link #转换为真实链接
+thunderdecoder -a -c link #转换为支持到所有形式到链接
+```
 
 # 已知的问题
 - 必须按照特定顺序提供参数才能正常工作
