@@ -1,4 +1,8 @@
 #!/bin/bash
+# set -x
+
+versioninfo="v0.2-dev"
+
 function toReal(){
     case ${1%%://*} in
         thunder)
@@ -26,7 +30,6 @@ function toReal(){
             echo $1;
             ;;
         *)
-            echo "bad link";
             exit 1;
             ;;
     esac
@@ -66,7 +69,9 @@ function real-fs(){
 
 function main(){
     var=`toReal $1`;
-    echo $var
+    if [ -n "$var" ]; then
+        echo $var
+    fi
     if [ -n "$isPrintAll" ]; then
         real-th "$var";
         real-fg "$var";
@@ -74,13 +79,54 @@ function main(){
         real-fs "$var";
     fi
 }
-while getopts "ac:" arg; do
+
+function printHelp(){
+    echo "Help";
+    echo -e '\t-a\t输出所有支持的链接形式';
+    echo -e '\t-c\t输入需要转换的链接';
+    echo -e '\t-h\t输出此帮助信息';
+    echo -e '\t-v\t输出版本信息';
+    echo "用法"；
+    echo -e '\tthunderdecoder link';
+    echo -e '\t\t转化为真实链接';
+    echo -e '\tthunder -ac link';
+    echo -e '\t\t转化为所有支持的链接形式';
+
+
+    exit 0;
+}
+
+function printVersion(){
+    echo $versioninfo;
+    exit 0;
+}
+
+case $# in
+    1)
+        main "$1";
+        ;;
+    0)
+        printHelp;
+        ;;
+esac
+
+while getopts "ac:hv" arg; do
     case $arg in
         a)  #转换成所有形式
             isPrintAll=ture;
             ;;
         c)  #直接转换成真实链接
-            main "$OPTARG";
+            link=$OPTARG;
+            isRun=ture;#传入了必要的参数脚本可以运行
+            ;;
+        h)
+            printHelp;
+            exit 2;
+            ;;
+        v)
+            # isprintVersion=ture;
+            printVersion;
+            exit 3;
             ;;
         ?)
             echo "unkonw argument"
@@ -88,3 +134,10 @@ while getopts "ac:" arg; do
             ;;
     esac
 done
+# if [ -n "$isPrintVersion" ]; then
+#     printVersion;
+# fi
+
+if [ -n "$isRun" ]; then
+    main "$link";
+fi
