@@ -9,8 +9,8 @@
 
 # 用法
 ```
-thunderdecoder -c link #转换为真实链接
-thunderdecoder -a -c link #转换为支持到所有形式到链接
+thunderdecoder link #转换为真实链接
+thunderdecoder -ac link #转换为支持到所有形式到链接
 ```
 
 # 已知的问题
