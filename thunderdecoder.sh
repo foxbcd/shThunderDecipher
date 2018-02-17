@@ -124,7 +124,6 @@ while getopts "ac:hv" arg; do
             exit 2;
             ;;
         v)
-            # isprintVersion=ture;
             printVersion;
             exit 3;
             ;;
@@ -134,9 +133,10 @@ while getopts "ac:hv" arg; do
             ;;
     esac
 done
-# if [ -n "$isPrintVersion" ]; then
-#     printVersion;
-# fi
+
+if [ -n "$isPrintVersion" ]; then
+    printVersion;
+fi
 
 if [ -n "$isRun" ]; then
     main "$link";
