@@ -9,14 +9,19 @@
 
 # 用法
 ```
-thunderdecoder link #转换为真实链接
-thunderdecoder -ac link #转换为支持到所有形式到链接
+chmod +x thunderdecoder.sh
+```
+```
+thunderdecoder.sh LINK #转换为真实链接
+thunderdecoder.sh -ac LINK #转换为支持到所有形式到链接
 ```
 
 # 已知的问题
 - 暂无
 
 # 更新注记
+## 2018-03-08 妇女节
+- 优化 说明文档
 ## 2018-02-17
 - 新增 对于直接转换可以省略`-c`参数
 - 新增 输出帮助信息和版本信息
