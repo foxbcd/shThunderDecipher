@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 
-versioninfo="v0.2-dev"
+versioninfo="v0.3"
 
 function toReal(){
     case ${1%%://*} in
@@ -27,6 +27,9 @@ function toReal(){
             echo $1;
             ;;
         ftps)
+            echo $1;
+            ;;
+        ed2k)
             echo $1;
             ;;
         *)
@@ -81,12 +84,12 @@ function main(){
 }
 
 function printHelp(){
-    echo "Help";
+    echo "帮助";
     echo -e '\t-a\t输出所有支持的链接形式';
     echo -e '\t-c\t输入需要转换的链接';
     echo -e '\t-h\t输出此帮助信息';
     echo -e '\t-v\t输出版本信息';
-    echo "用法"；
+    echo "用法";
     echo -e '\tthunderdecoder link';
     echo -e '\t\t转化为真实链接';
     echo -e '\tthunder -ac link';
@@ -101,6 +104,7 @@ function printVersion(){
     exit 0;
 }
 
+# 入口
 case $# in
     1)
         main "$1";
@@ -125,10 +129,10 @@ while getopts "ac:hv" arg; do
             ;;
         v)
             printVersion;
-            exit 3;
+            exit 0;
             ;;
         ?)
-            echo "unkonw argument"
+            echo "错误的选项"
             exit 1
             ;;
     esac
@@ -140,4 +144,15 @@ fi
 
 if [ -n "$isRun" ]; then
     main "$link";
+else
+    echo "缺少必要参数"
+    exit 3
 fi
+
+
+
+## 退出状态  退出原因
+#   0        正常退出
+#   1        错误的选项
+#   2        输出帮助信息
+#   3        缺少必要参数
