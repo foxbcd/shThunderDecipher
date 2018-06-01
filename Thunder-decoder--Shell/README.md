@@ -6,24 +6,27 @@
 - 旋风链接qqdl
 - 快车链接flashget
 - 飞速链接fs2you
+- eDonkey2000Network链接ed2k
 
 # 用法
 ```
 chmod +x thunderdecoder.sh
 ```
 ```
-thunderdecoder.sh LINK #转换为真实链接
-thunderdecoder.sh -ac LINK #转换为支持到所有形式到链接
+./thunderdecoder.sh LINK #转换为真实链接
+./thunderdecoder.sh -ac LINK #转换为支持到所有形式到链接
 ```
 
 # 已知的问题
 - 暂无
 
 # 更新注记
+## 2018-06-01 儿童节
+- 新增 对ed2k链接的支持
 ## 2018-03-08 妇女节
 - 优化 说明文档
 ## 2018-02-17
-- 新增 对于直接转换可以省略`-c`参数
+- 新增 直接转换可以省略`-c`参数
 - 新增 输出帮助信息和版本信息
 - 修复 需要提供顺序的参数才能正常工作
 ## 2018-02-15 除夕
